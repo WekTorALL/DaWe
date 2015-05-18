@@ -1,8 +1,6 @@
 <?php include('header.php');
 
 
-
-
 echo "<table border='1'>\n";
 $query="SELECT COLUMN_NAME FROM USER_TAB_COLUMNS WHERE table_name ='".$_GET['tableName']."'";
 

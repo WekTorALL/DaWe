@@ -8,8 +8,6 @@ if (!$conn) {
     trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
 }
 
-//$stid = oci_parse($conn, 'Create table myTable(col1 number, col2 varchar2(50))');
-//$query='insert into users values(\''.$_REQUEST["name"].'\',\''.$_REQUEST["password"].'\',\''.$_REQUEST["email"].'\',0)';
 $query='insert into users values(:name_bv,:pass_bv,:email_bv,0)';
 
 $stid = oci_parse($conn, $query);
@@ -26,7 +24,8 @@ if (!$execute) {
 if(!oci_num_rows($stid)){
     echo "Eroare";
 }else{
-    echo "Inregistrare cu succes!";
+
+    header('Location: index.php');
 }
 
 oci_free_statement($stid);
