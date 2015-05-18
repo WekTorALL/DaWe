@@ -23,6 +23,7 @@ if (isset($_REQUEST['name']) && isset($_REQUEST['password'])) {
         echo "Nume de utilizator sau parola incorecta!!!";
     } else {
         $_SESSION['login_user']=$_REQUEST['name']; // Initializing Session
+        $_SESSION['login_password']=$_REQUEST['password'];
         header('Location: header.php');
     }
 

@@ -1,6 +1,7 @@
 <?php
     if ($conn==null){
         $conn = oci_connect('stud40', 'tfuckingw', '85.122.23.37/XE');
+        // $conn2 = oci_connect($, 'tfuckingw', '85.122.23.37/XE');
     }
     if (!$conn) {
         $e = oci_error();

@@ -11,7 +11,7 @@ oci_execute($stid);
 echo "<tr>\n";
 while ($row = oci_fetch_array($stid, OCI_ASSOC+OCI_RETURN_NULLS)) {
     foreach ($row as $item) {
-        echo "    <td><b>" . ($item !== null ? htmlentities($item, ENT_QUOTES) : "&nbsp;") . "<b></td>\n";
+        echo "    <td><b>" . ($item !== null ? htmlentities($item, ENT_QUOTES) : "&nbsp;") . "</b></td>\n";
     }
 }
 echo "<td><b>Action</b></td>";
