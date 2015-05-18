@@ -1,5 +1,6 @@
 <?php
 include('header.php');
+
 session_start();
 $completed=$_SESSION['completed'];
 if ($completed==true) {
@@ -50,7 +51,7 @@ if ($completed==true) {
 }else if (isset($_REQUEST['tableName']) && isset($_REQUEST['nrOfColumns']) && is_numeric($_REQUEST['nrOfColumns'])) {
 //    echo $uname;
     $_SESSION['completed'] = true;
-    echo "<form action=".$_SERVER['PHP_SELF'].";. method=\"post\">
+    echo "<form action=".$_SERVER['PHP_SELF']." method=\"post\">
         <div>
             <label for=\"name\">Table name:</label>
             <input type=\"text\" name=\"tableName\"/ value=".$_REQUEST['tableName'].">
