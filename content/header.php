@@ -14,14 +14,6 @@ include ('../session.php');
 <div class="menu">
 <ul>
     <li>
-        <a href="#">Databases</a>
-        <ul>
-            <li><a href="#">Create new</a></li>
-            <li><a href="#">Database1</a></li>
-            <li><a href="#">Database2</a></li>
-        </ul>
-    </li>
-    <li>
         <a href="#">Tables</a>
         <ul>
             <li><a href="create_table.php">Create new</a></li>

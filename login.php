@@ -1,9 +1,7 @@
 <?php
 session_start(); // Starting Session
-
 if ((isset($_REQUEST['name']) && isset($_REQUEST['password']))) {
-
-    $conn = oci_connect('stud40', 'tfuckingw', '85.122.23.37/XE');
+    $conn = oci_connect('system', 'system', 'localhost/orcl');
     if (!$conn) {
         $e = oci_error();
         echo 'Eroare la conectare: ' . $e['message'];
@@ -14,7 +12,6 @@ if ((isset($_REQUEST['name']) && isset($_REQUEST['password']))) {
         $_SESSION['login_password']=$_REQUEST['password'];
         header('Location: header.php');
     }
-
 //    oci_free_statement($stid);
     oci_close($conn);
 }

@@ -1,6 +1,5 @@
 <?php
 include('header.php');
-
 session_start();
 $completed=$_SESSION['completed'];
 if ($completed==true) {
@@ -12,7 +11,7 @@ if ($completed==true) {
         if (isset($_REQUEST['length'][$i]) && is_numeric($_REQUEST['length'][$i])) {
             $column .= '(' . $_REQUEST['length'][$i] . ')';
         }
-        if (!isset($_REQUEST['setNull'][$i])) {
+        if (isset($_REQUEST['setNull'][$i])) {
             $column .= ' not null ';
         }
         if (!($i == ($_REQUEST['nrOfColumns'])-1)) {

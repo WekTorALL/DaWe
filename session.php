@@ -1,8 +1,8 @@
 <?php
+error_reporting(E_ALL ^ E_NOTICE);
 session_start();
-
     if ($conn==null){
-        $conn = oci_connect($_SESSION['login_user'], $_SESSION['login_password'], '85.122.23.37/XE');
+        $conn = oci_connect('C##' . $_SESSION['login_user'], $_SESSION['login_password'], 'localhost/orcl');
     }
     if (!$conn) {
         $e = oci_error();
@@ -17,5 +17,4 @@ session_start();
     if (!isset($login_session)) {
         header('Location: ../index.php'); // Redirecting To Home Page
     }
-
 ?>
