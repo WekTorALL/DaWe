@@ -114,3 +114,23 @@ form div {
 .column{
     margin-top: 20px;
 }
+textarea
+{
+    border:0px solid #999999;
+    width:100%;
+    margin:0px 0;
+    padding:3px;
+}
+#UserBttn {
+    margin-top: 10px;
+    margin-right: 10px;
+    background: #428BCA;
+    color: #fff;
+    font-family: Sans-serif;
+    font-size: 14px;
+    height: 20px;
+    width: 80px;
+    text-align: center;
+    border: 0;
+    transition: all 0.3s ease 0s;
+}
