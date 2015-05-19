@@ -1,11 +1,4 @@
-<<<<<<< Updated upstream
 <?php include('header.php');
-=======
-<?php
-include('header.php');
-
-
->>>>>>> Stashed changes
 echo "<table border='1'>\n";
 $query="SELECT COLUMN_NAME FROM USER_TAB_COLUMNS WHERE table_name ='".$_GET['tableName']."'";
 $stid = oci_parse($conn, $query);
@@ -27,7 +20,8 @@ while ($row = oci_fetch_array($stid, OCI_ASSOC+OCI_RETURN_NULLS)) {
     foreach ($row as $item) {
         echo "    <td>" . ($item !== null ? htmlentities($item, ENT_QUOTES) : "&nbsp;") . "</td>\n";
     }
-    echo "<td>$row</td>";
+    $get_row_id='select rowid from '.$_GET['tableName'].' where ';
+    echo "<td><a href='edit_row.php?row='.$row>Edit</a></td>";
     echo "</tr>\n";
 }
 echo "</table>\n";
