@@ -96,7 +96,6 @@ if ($completed==true) {
         <button type="submit">Continue</button>
     </form>
 
-
 <?php }
 include('footer.php');
 ?>
