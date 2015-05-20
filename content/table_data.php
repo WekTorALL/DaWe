@@ -24,7 +24,10 @@ while ($row = oci_fetch_array($stid, OCI_ASSOC+OCI_RETURN_NULLS)) {
         }
         $row_id=true;
     }
-    echo "<td><a href='edit_row.php?row=".$row['R']."&tableName=".$_GET['tableName']."'>Edit</a></td>";
+    echo "<td>
+                <a href='edit_row.php?row=".$row['R']."&tableName=".$_GET['tableName']."'>Edit</a> /
+                <a href='delete_row.php?row=".$row['R']."&tableName=".$_GET['tableName']."'>Delete</a>
+            </td>";
 
     echo "</tr>\n";
 }
