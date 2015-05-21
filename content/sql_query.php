@@ -17,7 +17,7 @@ session_start();
 
             error_reporting(0);
 
-            if (isset($_REQUEST['command']) ) {
+            if (!empty($_REQUEST['command']) ) {
 //    aici trebuie sa procesez interogarea data
 
             $query = $_REQUEST['command'];

@@ -1,8 +1,11 @@
 <?php
-error_reporting(E_ALL ^ E_NOTICE);
 session_start();
+error_reporting(E_ALL ^ E_NOTICE);
+
     if ($conn==null){
         $conn = oci_connect('C##' . $_SESSION['login_user'], $_SESSION['login_password'], 'localhost/orcl');
+        $conn_sys = oci_connect('system' ,'student', 'localhost/orcl');
+
     }
     if (!$conn) {
         $e = oci_error();
@@ -12,6 +15,7 @@ session_start();
     } else {
         $user_check = $_SESSION['login_user'];
         $uname=$user_check;
+        $upass=$_SESSION['login_password'];
         $login_session = $uname;
     }
     if (!isset($login_session)) {

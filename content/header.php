@@ -1,8 +1,10 @@
 <?php
 include ('../session.php');
 //include('timeSession.php');
+//error_reporting(0);
 
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,14 +16,7 @@ include ('../session.php');
 
 <div class="menu">
 <ul>
-    <li>
-        <a href="#">Databases</a>
-        <ul>
-            <li><a href="#">Create new</a></li>
-            <li><a href="#">Database1</a></li>
-            <li><a href="#">Database2</a></li>
-        </ul>
-    </li>
+
     <li>
         <a href="#">Tables</a>
         <ul>
@@ -43,21 +38,22 @@ include ('../session.php');
     <li>
         <a href="#"><b><?php echo $uname; ?></b></a>
         <ul>
-            <li><a href="#">User Settings</a></li>
+            <li><a href="user_settings.php">User Settings</a></li>
             <?php
-            $query='select * from users where uname=\''.$uname.'\'';
-            $stid = oci_parse($conn, $query);
-            $execute = oci_execute($stid);
-            if (!$execute) {
-                $er = oci_error($stid);
-                echo $er['message'];
-            }
 
-            while($row=oci_fetch_array($stid, OCI_ASSOC+OCI_RETURN_NULLS)) {
-                if ($row['ISADMIN'] == 1) {
-                    echo '<li><a href="admin_users_management.php">Manage Users</a></li>';
+                $query = 'select * from users where uname=\'' . $uname . '\'';
+                $stid = oci_parse($conn_sys, $query);
+                $execute = oci_execute($stid);
+                if (!$execute) {
+                    $er = oci_error($stid);
+                    echo $er['message'];
                 }
-            }
+                while ($row = oci_fetch_array($stid, OCI_ASSOC + OCI_RETURN_NULLS)) {
+                    if ($row['ISADMIN'] == 1) {
+                        echo '<li><a href="admin_users_management.php">Manage Users</a></li>';
+                    }
+                }
+
 
             ?>
             <li><a href="../logout.php">Logout</a></li>
