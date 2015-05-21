@@ -47,7 +47,7 @@ if ($completed==true) {
     }else{
         echo "<h2>Table <b>".$_REQUEST['tableName']."</b> created successfully</h2>";
     }
-}else if (isset($_REQUEST['tableName']) && isset($_REQUEST['nrOfColumns']) && is_numeric($_REQUEST['nrOfColumns'])) {
+}else if (!empty($_REQUEST['tableName']) && !empty($_REQUEST['nrOfColumns']) && is_numeric($_REQUEST['nrOfColumns'])) {
 //    echo $uname;
     $_SESSION['completed'] = true;
     echo "<form action=".$_SERVER['PHP_SELF']." method=\"post\">
@@ -69,6 +69,7 @@ if ($completed==true) {
                 <option value=\"integer\">Integer</option>
                 <option value=\"char\">Char</option>
                 <option value=\"varchar2\">Varchar2</option>
+                <option value=\"Date\">Date</option>
             </select>
             <label for=\"name\">Length:</label>
             <input type=\"text\" name=\"length[]\"/>
