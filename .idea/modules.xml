@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< 9d27821531d9ecea8e18222c39af22b3551e9317
       <module fileurl="file://$PROJECT_DIR$/.idea/DaWe.iml" filepath="$PROJECT_DIR$/.idea/DaWe.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/.idea/DaWe.git.iml" filepath="$PROJECT_DIR$/.idea/DaWe.git.iml" />
+>>>>>>> 9db53177545b95e997ca9990d2b39a68448c9f3a
     </modules>
   </component>
 </project>
