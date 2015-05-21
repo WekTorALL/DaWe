@@ -3,6 +3,7 @@ include('header.php');
 session_start();
 $completed=$_SESSION['completed'];
 if ($completed==true) {
+
     $_SESSION['completed']=false;
     $query = 'create table ' . $_REQUEST['tableName'] . ' (';
 
