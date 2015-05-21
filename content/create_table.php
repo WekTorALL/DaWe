@@ -8,11 +8,15 @@ if ($completed==true) {
 
     for ($i = 0; $i < $_REQUEST['nrOfColumns']; $i++) {
         $column .= $_REQUEST['columnName'][$i] . ' ' . $_REQUEST['type'][$i];
-        if (isset($_REQUEST['length'][$i]) && is_numeric($_REQUEST['length'][$i])) {
+        if (!empty($_REQUEST['length'][$i]) && is_numeric($_REQUEST['length'][$i])) {
             $column .= '(' . $_REQUEST['length'][$i] . ')';
         }
-        if (!empty($_REQUEST['setNull'][$i])) {
-            $column .= ' not null ';
+         foreach ($_POST['setNull'] as $value) {
+             $set=false;
+            if($i==$value && $set==false){
+                $column .= ' not null ';
+                $set=true;
+            }
         }
         if (!($i == ($_REQUEST['nrOfColumns'])-1)) {
             $column .= ', ';
@@ -24,14 +28,14 @@ if ($completed==true) {
 
     $pk=', CONSTRAINT ' . $_REQUEST['tableName'] . '_pk PRIMARY KEY (';
     for ($i = 0; $i < $_REQUEST['nrOfColumns']; $i++) {
-        if (isset($_REQUEST['primaryKey'][$i])) {
-            if($pkExists==true){
-                $pk.=', ';
+        foreach ($_POST['primaryKey'] as $value) {
+            if ($i == $value) {
+                $pkExists=true;
+                $pk .= $_REQUEST['columnName'][$i].',';
             }
-            $pkExists=true;
-            $pk .=$_REQUEST['columnName'][$i].' ';
         }
     }
+    $pk=substr($pk, 0, -1);
     $pk.=')';
     $query .= $column;
     if($pkExists){
@@ -73,10 +77,10 @@ if ($completed==true) {
             </select>
             <label for=\"name\">Length:</label>
             <input type=\"text\" name=\"length[]\"/>
-            <label for=\"name\">NULL<br></label>
-            <input type=\"checkbox\" name=\"setNull[]\">
+            <label for=\"name\">Not NULL<br></label>
+            <input type=\"checkbox\" value='$i' name=\"setNull[]\">
             <label for=\"name\">Primary key<br></label>
-            <input type=\"checkbox\" name=\"primaryKey[]\">
+            <input type=\"checkbox\" value='$i' name=\"primaryKey[]\">
             </div>
             ";
     }
