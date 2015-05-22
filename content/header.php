@@ -56,6 +56,7 @@ include ('../session.php');
 
 
             ?>
+            <li><a href="log.php">History</a></li>
             <li><a href="../logout.php">Logout</a></li>
         </ul>
     </li>

@@ -10,8 +10,15 @@ error_reporting(E_ALL ^ E_NOTICE);
     if (!$conn) {
         $e = oci_error();
         echo 'Eroare la conectare: ' . $e['message'];
-        trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
+//        trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
         echo "Nume de utilizator sau parola incorecta!";
+
+//        if(session_destroy()) // Destroying All Sessions
+//        {
+////            header( "refresh:5;url=index.php" );
+//           // Redirecting To Home Page
+//        }
+
     } else {
         $user_check = $_SESSION['login_user'];
         $uname=$user_check;
