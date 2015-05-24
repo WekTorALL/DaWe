@@ -34,6 +34,7 @@ include ('../session.php');
     </li>
 
     <li><a href="sql_query.php">SQL Query</a></li>
+    <li><a href="import_export.php">Import/Export CSV</a></li>
 
     <li>
         <a href="#"><b><?php echo $uname; ?></b></a>

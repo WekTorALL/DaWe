@@ -22,7 +22,7 @@ while ($row = oci_fetch_array($stid, OCI_ASSOC + OCI_RETURN_NULLS)) {
     foreach ($row as $item) {
         echo "    <td>" . ($item !== null ? htmlentities($item, ENT_QUOTES) : "&nbsp;") . "</td>\n";
     }
-    $query2 = 'SELECT isPrimary(\'' . $_GET['tableName'] . '\', \'' . $row['COLUMN_NAME'] . '\') as pKey FROM dual';
+    $query2 = 'SELECT system.isPrimary(\'' . $_GET['tableName'] . '\', \'' . $row['COLUMN_NAME'] . '\') as pKey FROM dual';
     $stid2 = oci_parse($conn, $query2);
 
     $execute2 = oci_execute($stid2);

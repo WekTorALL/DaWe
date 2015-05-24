@@ -2,7 +2,7 @@
 include('header.php');
 
 if(isset($_REQUEST['newValues']) && isset($_GET['tableName'])){
-    $query = "SELECT COLUMN_NAME, DATA_TYPE FROM USER_TAB_COLUMNS WHERE table_name ='" . $_GET['tableName'] . "'";
+    $query = "SELECT COLUMN_NAME, DATA_TYPE FROM USER_TAB_COLUMNS WHERE table_name ='" . $_GET['tableName'] . "' ORDER BY COLUMN_ID";
     $stid = oci_parse($conn, $query);
     oci_execute($stid);
 
@@ -33,7 +33,7 @@ if(isset($_REQUEST['newValues']) && isset($_GET['tableName'])){
     }
 
 }else {
-    $query = "SELECT COLUMN_NAME FROM USER_TAB_COLUMNS WHERE table_name ='" . $_GET['tableName'] . "'";
+    $query = "SELECT COLUMN_NAME FROM USER_TAB_COLUMNS WHERE table_name ='" . $_GET['tableName'] . "' ORDER BY COLUMN_ID";
     $stid = oci_parse($conn, $query);
     oci_execute($stid);
 

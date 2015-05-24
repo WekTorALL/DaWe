@@ -4,7 +4,7 @@ error_reporting(E_ALL ^ E_NOTICE);
 
     if ($conn==null){
         $conn = oci_connect('C##' . $_SESSION['login_user'], $_SESSION['login_password'], 'localhost/orcl');
-        $conn_sys = oci_connect('system' ,'student', 'localhost/orcl');
+        $conn_sys = oci_connect('system' ,'system', 'localhost/orcl');
 
     }
     if (!$conn) {

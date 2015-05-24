@@ -3,7 +3,7 @@
 $rec_limit = 20;
 
 echo "<table border='1'>\n";
-$query="SELECT COLUMN_NAME FROM USER_TAB_COLUMNS WHERE table_name ='".$_GET['tableName']."' order by column_id";
+$query="SELECT COLUMN_NAME FROM USER_TAB_COLUMNS WHERE table_name ='".$_GET['tableName']."' ORDER BY COLUMN_ID";
 $stid = oci_parse($conn, $query);
 oci_execute($stid);
 echo "<tr>\n";

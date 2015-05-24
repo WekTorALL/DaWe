@@ -1,5 +1,5 @@
 <?php
-$conn_sys = oci_connect('system', 'student', 'localhost/orcl');
+$conn_sys = oci_connect('system', 'system', 'localhost/orcl');
 if (!$conn_sys) {
     $e = oci_error();
     echo 'Eroare la conectare: '.$e['message'];

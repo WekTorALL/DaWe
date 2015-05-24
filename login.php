@@ -2,7 +2,7 @@
 
 session_start(); // Starting Session
 if ((isset($_REQUEST['name']) && isset($_REQUEST['password']))) {
-    $conn = oci_connect('system', 'student', 'localhost/orcl');
+    $conn = oci_connect('system', 'system', 'localhost/orcl');
     if (!$conn) {
         $e = oci_error();
         echo 'Eroare la conectare: ' . $e['message'];
