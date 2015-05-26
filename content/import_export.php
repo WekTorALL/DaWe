@@ -33,5 +33,9 @@ if(isset($_FILES['file']['name'])){
        <input type="hidden" name="export" value="export" />
       <button type="submit">Export to CSV</button>
    </form>';
+    echo '<form method="post" action="upload.php" enctype="multipart/form-data">
+       <input type="file" name="fileToUpload" id="fileToUpload">
+       <button type="submit">Run script</button>
+    </form>';
 
  include('footer.php')?>
