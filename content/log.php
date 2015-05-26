@@ -1,5 +1,8 @@
 <?php include('header.php');
-session_start();
+
+if(isset($_POST['exportXML'])){
+
+}
 echo "<table border='1'>\n";
 $query="SELECT COLUMN_NAME FROM USER_TAB_COLUMNS WHERE table_name='TABLE_LOG' ORDER BY COLUMN_ID";
 $stid = oci_parse($conn_sys, $query);
@@ -27,5 +30,10 @@ while ($row = oci_fetch_array($stid, OCI_ASSOC+OCI_RETURN_NULLS)) {
     echo "</tr>\n";
 }
 echo "</table>\n";
+
+echo '<form method="post" action="'.$_SERVER['PHP_SELF'].'">
+       <input type="hidden" name="exportXML" value="exportXML" />
+      <button type="submit">Export to XML</button>
+   </form>';
 
 include('footer.php'); ?>
