@@ -72,9 +72,7 @@
                 <label for="email">Email:</label>
                 <input type="text" name="email">
             </div>
-            <div>
-                <input type="checkbox" name="set_cookie">Save your password
-            </div>
+            
             <button type="submit">Register</button>
         </form>
     </div>
