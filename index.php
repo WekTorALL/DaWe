@@ -2,7 +2,7 @@
 <html>
 <head>
 
-    <title>Taraita!</title>
+    <title>Taraita! Da, We...</title>
     <link rel="stylesheet" href="css/modal.css" type="text/css" media="screen">
     <link rel="stylesheet" href="css/login_styles.css" type="text/css" media="screen">
 
